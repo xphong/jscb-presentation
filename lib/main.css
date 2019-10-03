@@ -19,3 +19,11 @@
   z-index: -10;
   width: 50%;
 }
+
+.reveal pre {
+  width: 100%;
+}
+
+.reveal pre code {
+  max-height: 600px;
+}
