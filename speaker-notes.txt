@@ -1,0 +1,4 @@
+Accessbility
+SpeechRecognition.lang: Sets the language of the recognition. Setting this is good practice, and therefore recommended.
+SpeechRecognition.interimResults: Defines whether the speech recognition system should return interim results, or just final results. Final results are good enough for this simple demo.
+SpeechRecognition.maxAlternatives: Sets the number of alternative potential matches that should be returned per result. This can sometimes be useful, say if a result is not completely clear and you want to display a list if alternatives for the user to choose the correct one from. But it is not needed for this simple demo, so we are just specifying one (which is actually the default anyway.)
