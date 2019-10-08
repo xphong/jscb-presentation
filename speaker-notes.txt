@@ -2,3 +2,22 @@ Accessbility
 SpeechRecognition.lang: Sets the language of the recognition. Setting this is good practice, and therefore recommended.
 SpeechRecognition.interimResults: Defines whether the speech recognition system should return interim results, or just final results. Final results are good enough for this simple demo.
 SpeechRecognition.maxAlternatives: Sets the number of alternative potential matches that should be returned per result. This can sometimes be useful, say if a result is not completely clear and you want to display a list if alternatives for the user to choose the correct one from. But it is not needed for this simple demo, so we are just specifying one (which is actually the default anyway.)
+
+Api modernization
+- electron (node, chromium, native apis), JS framework that allows you to write desktop applications
+- semver for contract
+- callbacks to promises (using v8)
+- Documentation, roadmapping
+- Trade offs
+
+Testing in production: ideas, experiences, limits, roadblocks
+Why you need tests in production
+- Testing in production can allow you to get direct feedback/errors instead of having customer indirect feedback
+- Guarantee it works consistenly after release
+- Automated Scheduled tests that runs after the release
+
+Level of testing
+- As indicated here, the pyramid shows from bottom to top: Unit, Integration, E2E. As you move up the pyramid the tests get slower to write/run and more expensive (in terms of time and resources) to run/maintain. It's meant to indicate that you should spend more of your time on unit tests due to these factors.
+- Cucumberjs, Bdd scenarios
+
+Cucumber is a tool for running automated tests written in plain language. Because they're written in plain language, they can be read by anyone on your team. Because they can be read by anyone, you can use them to help improve communication, collaboration and trust on your team.

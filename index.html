@@ -37,11 +37,11 @@
           <img src="images/accessibility.jpeg" height="500" />
         </div>
         <div class="right">
-            <ul>
-                <li>Accessbility on the web</li>
-                <li>Web Speech API (SpeechRecognition)</li>
-                <li>Ava, Spotify App examples</li>
-              </ul>
+          <ul>
+            <li>Accessbility on the web</li>
+            <li>Web Speech API (SpeechRecognition)</li>
+            <li>Ava, Spotify App examples</li>
+          </ul>
         </div>
       </section>
 
@@ -81,25 +81,25 @@
         <h3>Intent</h3>
         <pre>
           <code data-trim>
-              export const navigateIntent: IntentProps =  IntentFactory({
-                type: Intent.navigate,
-                samples: [
-                  'good playlist',
-                  'go to playlist',
-                  'show my playlists',
-                  'show my playlist',
-                  'call list',
-                  'ok list',
-                  'so playlist',
-                  'musica',
-                  'mi musica',
-                  'enseñame los playlists',
-                  'zeig meine playlists'
-                ],
-                action(id: string) {
-                  return handleRouter(`/playlists/${id}`, id);
-                }
-              });
+            export const navigateIntent: IntentProps =  IntentFactory({
+              type: Intent.navigate,
+              samples: [
+              'good playlist',
+              'go to playlist',
+              'show my playlists',
+              'show my playlist',
+              'call list',
+              'ok list',
+              'so playlist',
+              'musica',
+              'mi musica',
+              'enseñame los playlists',
+              'zeig meine playlists'
+              ],
+              action(id: string) {
+                return handleRouter(`/playlists/${id}`, id);
+              }
+            });
           </code>
         </pre>
       </section>
@@ -109,36 +109,124 @@
       </section>
 
       <section>
-        <div class='left'>
-          <img src="images/testing-in-prod.jpeg" height="500" />
-        </div>
-        <div class="right">
-          - guarantee it works after release
-          - Schedule tests
-          - Cucumberjs
-          - Bdd scenarios
-          - Avoid disrupting real users, space out tests
-          - Clean up data after testing
-
-        </div>
+        <h3>
+          Testing in production: Ideas, experiences, limits, roadblocks
+        </h3>
+        <ul>
+          <li>Why you need tests in production</li>
+          <li>Level of testing against production system</li>
+          <li>User scenarios, avoid disrupting users</li>
+        </ul>
       </section>
-    </div>
-  </div>
 
-  <script src="js/reveal.js"></script>
+      <section>
+        <h3>Why you need tests in production</h3>
+        <ul>
+          <li>Testing in production can allow you to get direct feedback/errors instead of having customer indirect feedback</li>
+          <li>Guarantee it works consistenly after release</li>
+          <li>Automated Scheduled tests that runs after the release</li>
+        </ul>
+      </section>
 
-  <script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
-    Reveal.initialize({
-      dependencies: [
-      { src: 'plugin/markdown/marked.js' },
-      { src: 'plugin/markdown/markdown.js' },
-      { src: 'plugin/notes/notes.js', async: true },
-      { src: 'plugin/highlight/highlight.js', async: true }
-      ]
-    });
-  </script>
-</body>
-</html>
+      <section>
+        <h3>
+          Level of testing against production system
+        </h3>
+        <img src="images/testing-pyramid.png" />
+      </section>
+
+      <section>
+        <h3>CucumberJS</h3>
+        <pre>
+          <code data-trim>
+            Feature: Simple maths
+            In order to do maths
+            As a developer
+            I want to increment variables
+
+            Scenario: easy maths
+            Given a variable set to 1
+            When I increment the variable by 1
+            Then the variable should contain 2
+
+            Scenario Outline: much more complex stuff
+            Given a variable set to <var>
+              When I increment the variable by <increment>
+                Then the variable should contain <result>
+
+                  Examples:
+                  | var | increment | result |
+                  | 100 |         5 |    105 |
+                  |  99 |      1234 |   1333 |
+                  |  12 |         5 |     18 |
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>Step Definitions</h3>
+              <pre>
+                <code data-trim>
+                  var setWorldConstructor = Cucumber.setWorldConstructor;
+                  var Given = Cucumber.Given;
+                  var When = Cucumber.When;
+                  var Then = Cucumber.Then;
+                  var expect = chai.expect;
+
+                  var CustomWorld = function() {
+                    this.variable = 0;
+                  };
+
+                  CustomWorld.prototype.setTo = function(number) {
+                    this.variable = parseInt(number);
+                  };
+
+                  CustomWorld.prototype.incrementBy = function(number) {
+                    this.variable += parseInt(number);
+                  };
+
+                  setWorldConstructor(CustomWorld);
+
+                  Given('a variable set to {int}', function(number) {
+                    this.setTo(number);
+                  });
+
+                  When('I increment the variable by {int}', function(number) {
+                    this.incrementBy(number);
+                  });
+
+                  Then('the variable should contain {int}', function(number) {
+                    expect(this.variable).to.eql(number)
+                  });
+
+                </code>
+              </pre>
+            </section>
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+        <script src="js/reveal.js"></script>
+
+        <script>
+          // More info about config & dependencies:
+          // - https://github.com/hakimel/reveal.js#configuration
+          // - https://github.com/hakimel/reveal.js#dependencies
+          Reveal.initialize({
+            dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true }
+            ]
+          });
+        </script>
+      </body>
+      </html>
