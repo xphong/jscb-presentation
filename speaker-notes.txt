@@ -21,3 +21,4 @@ Level of testing
 - Cucumberjs, Bdd scenarios
 
 Cucumber is a tool for running automated tests written in plain language. Because they're written in plain language, they can be read by anyone on your team. Because they can be read by anyone, you can use them to help improve communication, collaboration and trust on your team.
+- the more often you run tests, the faster you'll notice an issue. Slow downs are the trade off
