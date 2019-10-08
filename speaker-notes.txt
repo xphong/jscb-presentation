@@ -22,3 +22,11 @@ Level of testing
 
 Cucumber is a tool for running automated tests written in plain language. Because they're written in plain language, they can be read by anyone on your team. Because they can be read by anyone, you can use them to help improve communication, collaboration and trust on your team.
 - the more often you run tests, the faster you'll notice an issue. Slow downs are the trade off
+
+Composing music with composed functions
+Pure functions: Given the same arguments, it will return the same value. No side effects
+- Immutability
+- higher order functions
+
+Partial Application: a technique to "pre-set" or "fix" some arguments of a function
+Why? Forces breaking down problems into their smallest parts

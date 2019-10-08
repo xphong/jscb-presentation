@@ -256,7 +256,73 @@
                 </ul>
               </section>
 
+              <section>
+                  <h3>Composing music with composed functions</h3>>
+              </section>
 
+              <section>
+                <h3>Array.filter</h3>
+                <pre>
+                  <code data-trim>
+                      import Tone from 'tone';
+                      const melody = [
+                        'C4', 'D4', 'Eb4', 'G3',
+                        'F4', 'Ab3', 'Eb4', 'D4', 'C4'
+                      ];
+                      const freq = note => Tone.Frequency(note).toFrequency();
+                      const isHigh = note => freq(note) >= freq('C4');
+                      const highNotes = melody.filter(isHigh);
+                      // ["C4", "D4", "Eb4", "F4", "Eb4", "D4", "C4"]
+                  </code>
+                </pre>
+              </section>
+
+              <section>
+                <h3>Partial Application</h3>
+                <pre>
+                  <code data-trim>
+                      import transpose from 'fictional-library';
+                      // (dir, interval, note) => newNote
+
+                      const upMajorThird = note => transpose('up', '3M', note);
+                      upMajorThird({note: 'C', octave: 4}); // {note: 'E', octave: 4}
+                      upMajorThird({note: 'Bb', octave: 2}); // {note: 'D', octave: 3}
+
+                      /* Stage 1 TC39 Native Partial Application Syntax */
+                      const downMinorSeventh = transpose('down', '7m', ?);
+                  </code>
+                </pre>
+              </section>
+
+              <section>
+                <h3>Composition</h3>
+                <pre>
+                  <code data-trim>
+                      import Tone from 'tone';
+
+                      const freq = name =>
+                        Tone.Frequency(name).toFrequency();
+
+                      const multiply = a => b => a * b;
+                      const detuneUp = multiply(1.01);
+
+                      const compose = (a,b) => (...args) => a(b(...args));
+
+                      const getDetunedFrequency =
+                        compose(detuneUp, freq);
+
+                      /* Stage 1 TC39 Native Pipeline operator Syntax */
+                      const getDetunedFrequency = note => note
+                        |> freq
+                        |> detuneUp;
+                  </code>
+                </pre>
+              </section>
+
+              <section>
+                <h3>Essential JavaScript debugging tools for the
+                    modern detective</h3>
+              </section>
 
           </div>
         </div>
