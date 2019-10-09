@@ -35,3 +35,20 @@ Essential JavaScript debugging tools for the modern detective
 - stepping, conditional breakpoints
 - debugging in the IDE
 - vs code extension Debugger for Chrome
+
+Making things fast in a world of build tools
+- inline the google fonts css into the html
+- copy the font files to the server
+We can make use of <link rel="preload"> tags to make sure all dependencies start loading the second we receive our HTML.
+
+Prerendering
+- Arguably the biggest improvements for FMP can be achieved by sending styled markup in your index.html
+- similar to server side rendering
+
+Code splitting
+The mantra here is to statically import the modules that are critically needed at load time and dynamically load everything else
+
+- Only 1 webpack expert
+- Rollup easier to write plugins
+- Webpack plugins are undocumented (htmlwebpackplugin)
+- Write your own plugins Instead of wrangling with others

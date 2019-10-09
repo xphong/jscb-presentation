@@ -357,8 +357,109 @@
               </section>
 
               <section>
-                  <img src="images/git.jpeg"  height="600">
-                </section>
+                <img src="images/git.jpeg"  height="600">
+              </section>
+
+              <section>
+                <a href='https://ohshitgit.com/'>https://ohshitgit.com/</a>
+              </section>
+
+              <section>
+                <h3>Making things fast in world of build tools</h3>
+                <ul>
+                  <li>Proxx (minesweeper)</li>
+                  <li>Preact</li>
+                  <li>Feature Phones (2G)</li>
+                  <li>Performance</li>
+                  <li>Webpack vs Rollup</li>
+                  <li>Code Splitting</li>
+                </ul>
+              </section>
+
+              <section>
+                <img src="images/waterfall_opt.png" >
+                <ul style="font-size: 24px">
+                  <li>Request #1: Our index.html</li>
+                  <li>Request #5: The font styles from fonts.googleapis.com</li>
+                  <li>Request #8: Google Analytics</li>
+                  <li>Request #9: A font file from fonts.gstatic.com</li>
+                  <li>Request #14: The Web App Manifest</li>
+                </ul>
+              </section>
+
+              <section>
+                <h3>Prerendering</h3>
+                <pre>
+                  <code data-trim>
+                    const browser = await puppeteer.launch();
+                    const page = await browser.newPage();
+                    await page.setContent(rawIndexHTML);
+                    await page.evaluate(codeToRun);
+                    const renderedHTML = await page.content();
+                    browser.close();
+                    await writeFile("index.html", renderedHTML);
+                  </code>
+                </pre>
+              </section>
+
+              <section>
+                <h3>Code Splitting / Lazy Loading</h3>
+                <pre>
+                  <code data-trim>
+                    export default function deferred(componentPromise) {
+                      return class Deferred extends Component {
+                        constructor(props) {
+                          super(props);
+                          this.state = {
+                            LoadedComponent: undefined
+                          };
+                          componentPromise.then(component => {
+                            this.setState({ LoadedComponent: component });
+                          });
+                        }
+
+                        render({ loaded, loading }, { LoadedComponent }) {
+                          if (LoadedComponent) {
+                            return loaded(LoadedComponent);
+                          }
+                          return loading();
+                        }
+                      };
+                    }
+                  </code>
+                </pre>
+              </section>
+
+              <section>
+                <h3>Rollup</h3>
+                <pre>
+                  <code data-trim>
+                    import fs from 'fs';
+                    import path from 'path';
+
+                    const copyPlugin = function (options) {
+                      return {
+                        ongenerate(){
+                          const targDir = path.dirname(options.targ);
+                          if (!fs.existsSync(targDir)){
+                            fs.mkdirSync(targDir);
+                          }
+                          fs.writeFileSync(options.targ, fs.readFileSync(options.src));
+                        }
+                      };
+                    };
+
+                    export default {
+                      plugins: [
+                        copyPlugin({
+                          src:  './node_modules/xAPIWrapper/dist/xapiwrapper.min.js',
+                          targ: './dist/xapiwrapper.min.js'
+                        })
+                      ],
+                    };
+                  </code>
+                </pre>
+              </section>
 
             </div>
           </div>
