@@ -50,5 +50,11 @@ The mantra here is to statically import the modules that are critically needed a
 
 - Only 1 webpack expert
 - Rollup easier to write plugins
-- Webpack plugins are undocumented (htmlwebpackplugin)
 - Write your own plugins Instead of wrangling with others
+
+Web norms of the world
+- differences between asian, european, NA websites (amtrak, rakuten example)
+- Gmarket (korean site) using images for text, faster than fonts, always renders the same
+- Localization !== translation
+- Internet infrastructure, mobile is used more in asia, broadbrand
+- Build software tailored to peoples needs
