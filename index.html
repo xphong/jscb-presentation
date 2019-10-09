@@ -204,142 +204,166 @@
             </section>
 
             <section>
-                <img src="images/textiles.jpeg" height="600" />
+              <img src="images/textiles.jpeg" height="600" />
+            </section>
+
+            <section>
+              <h3>JavaScript performance in extreme environments
+              </h3>
+              <ul>
+                <li>Performance Goals</li>
+                <li>Performance Strategies (power, data, speed)</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Performance Goals</h3>
+              <ul>
+                <li>Mid range android</li>
+                <li>3G</li>
+                <li>Minimize resource use</li>
+                <li>Fast first meaningful paint and time to interactive</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Minimize Power Use</h3>
+              <ul>
+                <li>Batch Requests - less antenna</li>
+                <li>Don't Poll - less antenna</li>
+                <li>Limit animations - less CPU/GPU</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Minimize Data Use</h3>
+              <ul>
+                <li>Compress Payloads</li>
+                <li>Load content as needed</li>
+                <li>Cache</li>
+                <li>Precaching (service workers)</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Speed improvements</h3>
+              <ul>
+                <li>Brotli compression</li>
+                <li>Bundle splitting with Webpack</li>
+                <li>Resize images</li>
+                <li>Lazy load images</li>
+                <li>Removing unused font icons</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Composing music with composed functions</h3>>
+            </section>
+
+            <section>
+              <h3>Array.filter</h3>
+              <pre>
+                <code data-trim>
+                  import Tone from 'tone';
+                  const melody = [
+                  'C4', 'D4', 'Eb4', 'G3',
+                  'F4', 'Ab3', 'Eb4', 'D4', 'C4'
+                  ];
+                  const freq = note => Tone.Frequency(note).toFrequency();
+                  const isHigh = note => freq(note) >= freq('C4');
+                  const highNotes = melody.filter(isHigh);
+                  // ["C4", "D4", "Eb4", "F4", "Eb4", "D4", "C4"]
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>Partial Application</h3>
+              <pre>
+                <code data-trim>
+                  import transpose from 'fictional-library';
+                  // (dir, interval, note) => newNote
+
+                  const upMajorThird = note => transpose('up', '3M', note);
+                  upMajorThird({note: 'C', octave: 4}); // {note: 'E', octave: 4}
+                  upMajorThird({note: 'Bb', octave: 2}); // {note: 'D', octave: 3}
+
+                  /* Stage 1 TC39 Native Partial Application Syntax */
+                  const downMinorSeventh = transpose('down', '7m', ?);
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>Composition</h3>
+              <pre>
+                <code data-trim>
+                  import Tone from 'tone';
+
+                  const freq = name =>
+                  Tone.Frequency(name).toFrequency();
+
+                  const multiply = a => b => a * b;
+                  const detuneUp = multiply(1.01);
+
+                  const compose = (a,b) => (...args) => a(b(...args));
+
+                  const getDetunedFrequency =
+                  compose(detuneUp, freq);
+
+                  /* Stage 1 TC39 Native Pipeline operator Syntax */
+                  const getDetunedFrequency = note => note
+                  |> freq
+                  |> detuneUp;
+                </code>
+              </pre>
+            </section>
+
+            <section>
+              <h3>Essential JavaScript debugging tools for the
+                modern detective</h3>
               </section>
 
               <section>
-                <h3>JavaScript performance in extreme environments
-                  </h3>
-                  <ul>
-                    <li>Performance Goals</li>
-                    <li>Performance Strategies (power, data, speed)</li>
-                  </ul>
+                <img src="images/console-log-context.png" height="500">
               </section>
 
               <section>
-                <h3>Performance Goals</h3>
-                <ul>
-                  <li>Mid range android</li>
-                  <li>3G</li>
-                  <li>Minimize resource use</li>
-                  <li>Fast first meaningful paint and time to interactive</li>
-                </ul>
+                <img src="images/console-table.png" height="500">
               </section>
 
               <section>
-                <h3>Minimize Power Use</h3>
-                <ul>
-                  <li>Batch Requests - less antenna</li>
-                  <li>Don't Poll - less antenna</li>
-                  <li>Limit animations - less CPU/GPU</li>
-                </ul>
+                <img src="images/console-$.png" height="500">
               </section>
 
               <section>
-                <h3>Minimize Data Use</h3>
-                <ul>
-                  <li>Compress Payloads</li>
-                  <li>Load content as needed</li>
-                  <li>Cache</li>
-                  <li>Precaching (service workers)</li>
-                </ul>
+                <img src="images/console-trace.png" height="500">
               </section>
 
               <section>
-                <h3>Speed improvements</h3>
-                <ul>
-                  <li>Brotli compression</li>
-                  <li>Bundle splitting with Webpack</li>
-                  <li>Resize images</li>
-                  <li>Lazy load images</li>
-                  <li>Removing unused font icons</li>
-                </ul>
+                <img src="images/console-dir.png" height="500">
               </section>
 
               <section>
-                  <h3>Composing music with composed functions</h3>>
+                <img src="images/breakpoints.png" height="500">
               </section>
 
-              <section>
-                <h3>Array.filter</h3>
-                <pre>
-                  <code data-trim>
-                      import Tone from 'tone';
-                      const melody = [
-                        'C4', 'D4', 'Eb4', 'G3',
-                        'F4', 'Ab3', 'Eb4', 'D4', 'C4'
-                      ];
-                      const freq = note => Tone.Frequency(note).toFrequency();
-                      const isHigh = note => freq(note) >= freq('C4');
-                      const highNotes = melody.filter(isHigh);
-                      // ["C4", "D4", "Eb4", "F4", "Eb4", "D4", "C4"]
-                  </code>
-                </pre>
-              </section>
-
-              <section>
-                <h3>Partial Application</h3>
-                <pre>
-                  <code data-trim>
-                      import transpose from 'fictional-library';
-                      // (dir, interval, note) => newNote
-
-                      const upMajorThird = note => transpose('up', '3M', note);
-                      upMajorThird({note: 'C', octave: 4}); // {note: 'E', octave: 4}
-                      upMajorThird({note: 'Bb', octave: 2}); // {note: 'D', octave: 3}
-
-                      /* Stage 1 TC39 Native Partial Application Syntax */
-                      const downMinorSeventh = transpose('down', '7m', ?);
-                  </code>
-                </pre>
-              </section>
-
-              <section>
-                <h3>Composition</h3>
-                <pre>
-                  <code data-trim>
-                      import Tone from 'tone';
-
-                      const freq = name =>
-                        Tone.Frequency(name).toFrequency();
-
-                      const multiply = a => b => a * b;
-                      const detuneUp = multiply(1.01);
-
-                      const compose = (a,b) => (...args) => a(b(...args));
-
-                      const getDetunedFrequency =
-                        compose(detuneUp, freq);
-
-                      /* Stage 1 TC39 Native Pipeline operator Syntax */
-                      const getDetunedFrequency = note => note
-                        |> freq
-                        |> detuneUp;
-                  </code>
-                </pre>
-              </section>
-
-              <section>
-                <h3>Essential JavaScript debugging tools for the
-                    modern detective</h3>
-              </section>
-
+            </div>
           </div>
-        </div>
-        <script src="js/reveal.js"></script>
+          <script src="js/reveal.js"></script>
 
-        <script>
-          // More info about config & dependencies:
-          // - https://github.com/hakimel/reveal.js#configuration
-          // - https://github.com/hakimel/reveal.js#dependencies
-          Reveal.initialize({
-            dependencies: [
-            { src: 'plugin/markdown/marked.js' },
-            { src: 'plugin/markdown/markdown.js' },
-            { src: 'plugin/notes/notes.js', async: true },
-            { src: 'plugin/highlight/highlight.js', async: true }
-            ]
-          });
-        </script>
-      </body>
-      </html>
+          <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+              dependencies: [
+              { src: 'plugin/markdown/marked.js' },
+              { src: 'plugin/markdown/markdown.js' },
+              { src: 'plugin/notes/notes.js', async: true },
+              { src: 'plugin/highlight/highlight.js', async: true }
+              ]
+            });
+          </script>
+        </body>
+        </html>
