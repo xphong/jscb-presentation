@@ -30,3 +30,8 @@ Pure functions: Given the same arguments, it will return the same value. No side
 
 Partial Application: a technique to "pre-set" or "fix" some arguments of a function
 Why? Forces breaking down problems into their smallest parts
+
+Essential JavaScript debugging tools for the modern detective
+- stepping, conditional breakpoints
+- debugging in the IDE
+- vs code extension Debugger for Chrome
