@@ -65,3 +65,10 @@ UI State Machine
 - One step leads to another, and quickly we would start branching our code
 - Focusing instead on the application’s various states would be a lot simpler.
 - How many states do we have, and what are their possible inputs?
+
+Algorithms
+- data with relationships
+- O(n*m) order of N * M (nested loop)
+- The outer loop executes N times. Every time the outer loop executes, the inner loop executes M times.
+- As a result, the statements in the inner loop execute a total of N * M times.
+- index to get entries faster
