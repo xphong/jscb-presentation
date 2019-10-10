@@ -72,3 +72,8 @@ Algorithms
 - The outer loop executes N times. Every time the outer loop executes, the inner loop executes M times.
 - As a result, the statements in the inner loop execute a total of N * M times.
 - index to get entries faster
+
+Levenshtein
+- auto-correction
+- auto-completion
+- smart suggestions
