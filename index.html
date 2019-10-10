@@ -451,10 +451,10 @@
 
                     export default {
                       plugins: [
-                        copyPlugin({
-                          src:  './node_modules/xAPIWrapper/dist/xapiwrapper.min.js',
-                          targ: './dist/xapiwrapper.min.js'
-                        })
+                      copyPlugin({
+                        src:  './node_modules/xAPIWrapper/dist/xapiwrapper.min.js',
+                        targ: './dist/xapiwrapper.min.js'
+                      })
                       ],
                     };
                   </code>
@@ -465,8 +465,32 @@
                 <img src="images/web-norms-world.jpeg" height="600">
               </section>
 
+              <section>
+                <h3>UIs with finite state machines</h3>
+                <p>A state machine is a mathematical model of computation. It’s an abstract concept whereby the machine can have different states, but at a given time fulfills only one of them.</p>
+              </section>
 
+              <section>
+                <h3>Transition Workflow</h3>
+                <img src="images/state1.webp" >
+                <ul style="font-size: 18px">
+                  <li>We display a fetch-data button.</li>
+                  <li>The user clicks the fetch-data button.</li>
+                  <li>Fire the request to the back end.</li>
+                  <li>Retrieve the data and parse it.</li>
+                  <li>Show it to the user.</li>
+                  <li>Or, if there is an error, display the error message and show the fetch-data button so that we can trigger the process again.</li>
+                </ul>
+              </section>
 
+              <section>
+                <img src="images/state2.webp">
+              </section>
+
+              <section>
+                <h3>Focusing on state</h3>
+                <img src="images/state3.webp" >
+              </section>
 
 
 
